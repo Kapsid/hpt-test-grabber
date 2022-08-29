@@ -7,6 +7,7 @@ namespace HPT\Service;
 class Dispatcher
 {
     private Grabber $grabber;
+
     private Output $output;
 
     public function __construct(Grabber $grabber, Output $output)

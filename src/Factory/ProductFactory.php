@@ -10,13 +10,14 @@ use HPT\Model\Product;
 class ProductFactory
 {
     /**
-     * @param array<float, string> $inputInfo
+     * @param array{id: string, price: float} $inputInfo
      */
     public function create(array $inputInfo): Product
     {
         $product = new Product();
         $product->setId($inputInfo[ProductProperty::ID]);
         $product->setPrice($inputInfo[ProductProperty::PRICE]);
+
         return $product;
     }
 }

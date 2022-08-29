@@ -29,11 +29,12 @@ class ShopGrabber implements Grabber
     {
         $urlToCheck = sprintf(self::SEARCH_URL, $productId);
         $parsedHtml = $this->getProductInfoFromHtml($productId, $urlToCheck);
+
         return $this->productFactory->create($parsedHtml);
     }
 
     /**
-     * @return array<string, float>
+     * @return array{id: string, price: float} $inputInfo
      */
     private function getProductInfoFromHtml(string $productId, string $url): array
     {
@@ -43,9 +44,11 @@ class ShopGrabber implements Grabber
         ];
 
         $this->dom->loadFromUrl($url);
-        $price = $this->dom->find('.price > .price-vatin')[0];
+        $priceDom = $this->dom->find('.price > .price-vatin');
 
-        if($price !== null){
+        // TODO - possible improvement - logging if product is not found or is found in 'not for sale' - e.g. https://www.czc.cz/<PRODUCT CODE>/hledat/neprodavane
+        if(count($priceDom) > 0){
+            $price = $priceDom[0];
             $productInfo[ProductProperty::PRICE] = (float)filter_var($price->innerHtml, FILTER_SANITIZE_NUMBER_FLOAT);
         }
 
@@ -60,9 +63,11 @@ class ShopGrabber implements Grabber
     public function getProducts(array $productIds): array
     {
         $products = [];
+
         foreach($productIds as $productId){
             $products[] = $this->getProduct($productId);
         }
+
         return $products;
     }
 }

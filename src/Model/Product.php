@@ -7,6 +7,7 @@ namespace HPT\Model;
 class Product
 {
     private string $id;
+
     private ?float $price = null;
 
     public function getId(): string

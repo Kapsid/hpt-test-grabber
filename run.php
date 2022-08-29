@@ -2,11 +2,10 @@
 
 declare(strict_types=1);
 
-use \HPT\Factory\ProductFactory;
-use \HPT\Service\Dispatcher;
-use \HPT\Service\JsonOutput;
+use HPT\Factory\ProductFactory;
+use HPT\Service\Dispatcher;
 use HPT\Service\OutputGenerator;
-use \HPT\Service\ShopGrabber;
+use HPT\Service\ShopGrabber;
 use PHPHtmlParser\Dom;
 
 require_once __DIR__ . '/vendor/autoload.php';
