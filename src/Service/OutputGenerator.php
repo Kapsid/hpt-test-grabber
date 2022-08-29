@@ -10,14 +10,18 @@ use HPT\Model\Product;
 class OutputGenerator implements Output
 {
     /**
-     * @param array<Product> $products
+     * @param iterable<mixed> $products
      */
-    public function getJson(array $products): string
+    public function getJson(iterable $products): string
     {
         $output = [];
         foreach($products as $product){
-            // TODO more attributes to add here
-            $productInfo = [ProductProperty::PRICE => $product->getPrice()];
+            $productInfo = [
+                ProductProperty::PRICE => $product->getPrice(),
+                ProductProperty::LABEL => $product->getLabel(),
+                ProductProperty::RATING => $product->getRating(),
+                ];
+
             $output[$product->getId()] = $productInfo;
         }
 

@@ -8,8 +8,5 @@ use HPT\Model\Product;
 
 interface Output
 {
-    /**
-     * @param array<Product> $products
-     */
-    public function getJson(array $products): string;
+    public function getJson(iterable $products): string;
 }
