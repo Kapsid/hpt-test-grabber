@@ -15,7 +15,7 @@ class OutputGenerator implements Output
     public function getJson(iterable $products): string
     {
         $output = [];
-        foreach($products as $product){
+        foreach ($products as $product) {
             $productInfo = [
                 ProductProperty::PRICE => $product->getPrice(),
                 ProductProperty::LABEL => $product->getLabel(),
