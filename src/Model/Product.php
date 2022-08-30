@@ -6,7 +6,7 @@ namespace HPT\Model;
 
 class Product
 {
-    private string $id;
+    private ?string $id = null;
 
     private ?float $price = null;
 
@@ -14,12 +14,12 @@ class Product
 
     private ?string $label = null;
 
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->id;
     }
 
-    public function setId(string $id): self
+    public function setId(?string $id = null): self
     {
         $this->id = $id;
 

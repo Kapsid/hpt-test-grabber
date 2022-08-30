@@ -15,10 +15,10 @@ class ProductFactory
     public function create(array $inputInfo): Product
     {
         $product = new Product();
-        $product->setId($inputInfo[ProductProperty::ID]);
-        $product->setPrice($inputInfo[ProductProperty::PRICE]);
-        $product->setRating($inputInfo[ProductProperty::RATING]);
-        $product->setLabel($inputInfo[ProductProperty::LABEL]);
+        $product->setId($inputInfo[ProductProperty::ID] ?? null);
+        $product->setPrice($inputInfo[ProductProperty::PRICE] ?? null);
+        $product->setRating($inputInfo[ProductProperty::RATING] ?? null);
+        $product->setLabel($inputInfo[ProductProperty::LABEL] ?? null);
 
         return $product;
     }
