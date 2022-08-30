@@ -15,7 +15,7 @@ error_reporting(E_ALL ^ E_DEPRECATED);
 
 $productFactory = new ProductFactory();
 
-$dom =new Dom();
+$dom = new Dom();
 
 $productDetailGrabber = new ProductDetailGrabber($dom);
 

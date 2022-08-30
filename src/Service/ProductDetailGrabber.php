@@ -31,7 +31,7 @@ class ProductDetailGrabber
         /** @var  Dom\Node\AbstractNode $label */
         $rating = $ratingDom[0];
 
-        return $rating->text;
+        return trim($rating->text);
     }
 
     public function getLabel(?string $link): ?string
@@ -48,6 +48,6 @@ class ProductDetailGrabber
         /** @var  Dom\Node\AbstractNode $label */
         $label = $labelDom[0];
 
-        return $label->text;
+        return trim($label->text);
     }
 }
